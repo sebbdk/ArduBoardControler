@@ -7,7 +7,7 @@
 #include "RF24.h"
 #include "local_datatypes.h"
 #include "lib/printf.h"
-#include "lib/LiPoCheck.h"
+#include "lib/LiPoCheck.cpp"
 
 #ifdef OLED_USED
 	#include "U8glib.h"  

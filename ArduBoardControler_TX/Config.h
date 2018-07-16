@@ -12,7 +12,7 @@
 // #define STATUS_LED_USED		// Define if you are using status LEDs
 
 // Use if debug information over serial required
-//#define DEBUG 
+#define DEBUG
 
 // Definition of Pipe for nRF24
 const uint64_t pipe = 0xE8E8F0F0E1LL;
