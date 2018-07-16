@@ -5,7 +5,7 @@ The intention is to, hopefully, save my self and others some headaches in the fu
 
 To do this i have re-arranged file, and optimized code for readabillity.
 
-Please post a issue if you have questions, requests or suggestions.
+Please post an issue if you have questions, requests or suggestions.
 
 # Original description
 
