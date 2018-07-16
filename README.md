@@ -8,9 +8,11 @@ To do this i have re-arranged file, and optimized code for readabillity.
 Please post an issue if you have questions, requests or suggestions.
 
 **Required library!**
+
 https://github.com/RollingGecko/VescUartControl
 
 **Important!**
+
 Depending on your VESC firmware version the UART communication has changed slightly.
 Update the COMM_PACKET_ID enum in your VESCUartControl library manually to match the enum your firmware is using.
 
