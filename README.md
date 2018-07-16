@@ -1,4 +1,4 @@
-# Arduino based remote with telemetry for VESC with nRF24
+## Arduino based remote with telemetry for VESC with nRF24
 
 As the origial project was discontinued, and having worked with the code a bit i decided i would do some cleanup.
 The intention is to, hopefully, save my self and others some headaches in the future when modding the code.
@@ -6,6 +6,15 @@ The intention is to, hopefully, save my self and others some headaches in the fu
 To do this i have re-arranged file, and optimized code for readabillity.
 
 Please post an issue if you have questions, requests or suggestions.
+
+*Required library!*
+  https://github.com/RollingGecko/VescUartControl
+
+*Important!*
+Depending on your VESC firmware version the UART communication has changed slightly.
+Update the COMM_PACKET_ID enum in your VESCUartControl library manually to match the enum your firmware is using.
+
+Otherwise your reciever will not be sendign the correct UART commands.
 
 # Original description
 
