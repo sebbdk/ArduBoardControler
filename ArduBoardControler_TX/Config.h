@@ -1,47 +1,48 @@
 #ifndef _CONFIG_h
-#define _CONFIG_h
+	#define _CONFIG_h
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "Arduino.h"
-#else
-	#include "WProgram.h"
-#endif
-
-// Features
-// #define OLED_USED			// Define if you are using an OLED display
-// #define STATUS_LED_USED		// Define if you are using status LEDs
-
-// Use if debug information over serial required
-#define DEBUG
-
-// Definition of Pipe for nRF24
-const uint64_t pipe = 0xE8E8F0F0E1LL;
-
-// For Mega2560 (old status!!)
-#ifdef __AVR_ATmega2560__ 
-	// Pin definition
-	#define JOY_X				A0
-	#define JOY_Y				A1
-	#define UPPER_BUTTON		6	
-	#define LOWER_BUTTON		5
-	#define CEPIN				9
-	#define CSPIN				10
+	#if defined(ARDUINO) && ARDUINO >= 100
+		#include "Arduino.h"
+	#else
+		#include "WProgram.h"
 	#endif
 
-	// For Arduino ATmega328p (Nano)
+	// Features
+	// #define OLED_USED			// Define if you are using an OLED display
+	// #define STATUS_LED_USED		// Define if you are using status LEDs
+
+	// Use if debug information over serial required
+	#define DEBUG
+
+	// Definition of Pipe for nRF24
+	const uint64_t pipe = 0xE8E8F0F0E1LL;
+
+	// For Mega2560 (old status!!)
+	#ifdef __AVR_ATmega2560__ 
+		// Pin definition
+		#define JOY_X				A0
+		#define JOY_Y				A1
+		#define UPPER_BUTTON		6	
+		#define LOWER_BUTTON		5
+		#define CEPIN				9
+		#define CSPIN				10
+	#endif
+
+		// For Arduino ATmega328p (Nano)
 
 	#ifdef ARDUINO_AVR_NANO
 
 		//SPI definition (for better readability)
-
 		#define MOSI				11
 		#define MISO				12
 		#define SCK					13
+
 		//Joystick and bottons
 		#define JOY_X				A0
 		#define JOY_Y				A1
 		#define UPPER_BUTTON		2	
 		#define LOWER_BUTTON		3
+
 		//nRF24: 
 		/*nRF24	>					Ardunio nano
 		------------------------
@@ -71,7 +72,7 @@ const uint64_t pipe = 0xE8E8F0F0E1LL;
 			#define OLED_MISO			20	//not used
 			#define OLED_CEPIN			7	//(to SDA)
 			#define OLED_CSPIN			8	//(to SCL)
-		#endif //OLED_USED
+		#endif
 	#endif
 
 	//Define voltage control setting
