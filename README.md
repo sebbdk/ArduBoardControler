@@ -16,7 +16,7 @@ https://github.com/RollingGecko/VescUartControl
 Depending on your VESC firmware version the UART communication has changed slightly.
 Update the COMM_PACKET_ID enum in your VESCUartControl library manually to match the enum your firmware is using.
 
-Otherwise your reciever will not be sendign the correct UART commands.
+Otherwise your reciever will not be sending the correct UART commands.
 
 # Original description
 
