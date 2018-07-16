@@ -45,12 +45,14 @@ void setup() {
 
 void loop() {
 	//Getting Values from Vesc over UART
-	if (VescUartGetValue(VescMeasuredValues)) {
-		//	SerialPrint(VescMeasuredValues);
+	if (VescUartGetValue(VescMeasuredValues)) {	
+		#ifdef DEBUG
+			// SerialPrint(VescMeasuredValues);
+		#endif
 	} else {
 		#ifdef DEBUG
 			DEBUGSERIAL.println("Failed to get data from UART!");
-		#endif // DEBUG
+		#endif
 	}
 
 	//writing package to TX in AckPayload

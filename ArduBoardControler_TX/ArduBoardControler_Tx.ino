@@ -176,10 +176,10 @@ void loop()
 		BatCapIndLED(LED_VOLTAGE, VescMeasuredValues.inpVoltage, calculatedValues.numberCellsVesc);
 	#endif
 
-	//read iputs
+	// Read iputs
 	#ifdef SEND_LR	
 		remPack.valXJoy = map(analogRead(JOY_X), 0, 1023, 0, 255);
-	#else //if Joystick information of Y is not used for remote it can be used in remote
+	#else // If Joystick information of Y is not used for remote it can be used in remote
 		remPack.valXJoy = 200;
 		leftright = analogRead(JOY_X);
 	#endif
@@ -188,10 +188,10 @@ void loop()
 	remPack.valLowerButton = !digitalRead(LOWER_BUTTON);
 	remPack.valUpperButton = !digitalRead(UPPER_BUTTON);
 
-	//send data via radio to RX
+	// Send data via radio to RX
 	sendOK = radio.write(&remPack, sizeof(remPack));
 
-	//read Acknowledegement message from RX
+	// Read Acknowledegement message from RX
 	while (radio.isAckPayloadAvailable()) {
 		radio.read(&VescMeasuredValues, sizeof(VescMeasuredValues));
 		recOK = true;
@@ -227,7 +227,7 @@ void loop()
 		#endif
 	}
 
-	//Read y Joystick as switch left right for display
+	// Read y Joystick as switch left right for display
 	#ifndef SEND_LR
 		if (leftright < (512 - JOYSTICKBUTTON_DEADBAND) && joyStatus != right) {
 			joyStatus = right;
@@ -259,11 +259,9 @@ void loop()
 		} else if (leftright < (512+JOYSTICKBUTTON_DEADBAND) && leftright > (512-JOYSTICKBUTTON_DEADBAND)) {
 			joyStatus = center;
 		}
-	#endif //SEND_LR
+	#endif
 
-	//// picture loop
-	// picture loop for oled display
-
+	// Picture loop for oled display
 	#ifdef OLED_USED
 		u8g.firstPage();
 		do {
@@ -297,11 +295,9 @@ void loop()
 				break;
 			}
 			//DrawScreenMain();
-		} while (u8g.nextPage());
-		//// rebuild the picture after some delay
-	#endif // OLED_USED
+		} while (u8g.nextPage()); // Rebuild the picture after some delay
+	#endif
 }
-
 
 void inline Vibrator() {
 	analogWrite(VIBRATOR_PIN, STRENGTH);
@@ -318,12 +314,13 @@ void inline Vibrator(int numberCycles) {
 
 #ifdef STATUS_LED_USED
 	void BatCapIndLED(int led, float voltage, int numberCells) {
-		//	float capTx = CapCheckPerc(((float)analogRead(VOLTAGE_PIN) / VOLTAGE_DIVISOR_TX), calculatedValues.numberCellsTx);
 		int cap = CapCheckPerc(voltage, numberCells, TXCELLTYPE);
 
-		DEBUGSERIAL.print("voltag: "); DEBUGSERIAL.println(voltage);
-		DEBUGSERIAL.print("numberCells: "); DEBUGSERIAL.println(numberCells);
-		DEBUGSERIAL.print("Capacity: "); DEBUGSERIAL.println(cap);
+		#ifdef DEBUG
+			DEBUGSERIAL.print("voltag: "); DEBUGSERIAL.println(voltage);
+			DEBUGSERIAL.print("numberCells: "); DEBUGSERIAL.println(numberCells);
+			DEBUGSERIAL.print("Capacity: "); DEBUGSERIAL.println(cap);
+		#endif
 
 		if (cap > 80) {
 			Led.setPixelColor(led, COLOR_GREEN);
