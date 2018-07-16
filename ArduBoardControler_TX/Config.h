@@ -28,16 +28,14 @@
 		#define CSPIN				10
 	#endif
 
-		// For Arduino ATmega328p (Nano)
-
+	// For Arduino ATmega328p (Nano)
 	#ifdef ARDUINO_AVR_NANO
-
-		//SPI definition (for better readability)
+		// SPI definition (for better readability)
 		#define MOSI				11
 		#define MISO				12
 		#define SCK					13
 
-		//Joystick and bottons
+		// Joystick and bottons
 		#define JOY_X				A0
 		#define JOY_Y				A1
 		#define UPPER_BUTTON		2	
@@ -75,7 +73,7 @@
 		#endif
 	#endif
 
-	//Define voltage control setting
+	// Define voltage control setting
 	#define MAXNUMBERCELLS	10
 	#define LIPO	0
 	#define LIION	1
@@ -83,10 +81,10 @@
 	#define TXCELLTYPE			LIPO
 	#define DRIVECELLTYPE		LIPO	//OR LIION
 
-	//TX Voltage measurement
+	// TX Voltage measurement
 	#define VOLTAGE_DIVISOR_TX	102.5
 
-	//WS2812 settings
+	// WS2812 settings
 	#define NUM2812		4
 	#define BRIGHTNESS	20
 	#define LED_TX		0	//TX-Voltage
@@ -94,15 +92,14 @@
 	#define LED_VOLTAGE	2
 	#define LED_FOUR	3
 
-	//setting Vibrator
+	// Setting Vibrator
 	#define STRENGTH	255	//0-255
 	#define PULS		150 //ms
 
 	//#define SEND_LR
 	#define JOYSTICKBUTTON_DEADBAND		256
 
-
-	//Calculation Parameter
+	// Calculation Parameter
 	#define DIA_WHEEL	83 //mm
 	#define RATIO_GEAR	3.2
 	#define PULSE_REV   42  //Number of poles*3

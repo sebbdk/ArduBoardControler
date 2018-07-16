@@ -60,7 +60,7 @@
 	#define DEADBAND_POS 1
 	#define DEADBAND_NEG -1
 
-	//Settings for remote
+	// Settings for remote
 	#define TIMEOUTMAX  500
 
 	////Define remote Package
