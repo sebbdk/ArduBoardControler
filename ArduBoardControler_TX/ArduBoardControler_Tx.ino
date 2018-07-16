@@ -72,7 +72,7 @@ int numberDisplayShown = DEF_SCR;
 #endif
 
 const float ratioRpmSpeed = (DIA_WHEEL * 3.14156 * 60) / (ERPM_REV * RATIO_GEAR * 1000000);  //ERPM to Km/h
-const float   rationRotDist = ((DIA_WHEEL * 3.14156) / (PULSE_REV * RATIO_GEAR * 1000000))*CORRECT_FACTOR_DISTANCE; //Pulses to Km
+const float rationRotDist = ((DIA_WHEEL * 3.14156) / (PULSE_REV * RATIO_GEAR * 1000000))*CORRECT_FACTOR_DISTANCE; //Pulses to Km
 
 RF24 radio(CEPIN,CSPIN);
 
@@ -220,12 +220,12 @@ void loop()
 		#endif
 	}
 
-	if (recOK) {
-		#ifdef DEBUG
+	#ifdef DEBUG
+		if (recOK) {
 			Serial.println("Received values from Vesc:");
 			SerialPrint(VescMeasuredValues);
-		#endif
-	}
+		}
+	#endif
 
 	// Read y Joystick as switch left right for display
 	#ifndef SEND_LR
