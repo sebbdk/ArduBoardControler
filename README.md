@@ -5,6 +5,10 @@ The intention is to, hopefully, save my self and others some headaches in the fu
 
 To do this i have re-arranged file, and optimized code for readabillity.
 
+Currently this has only been tested on Arduino nano. 
+I have a few Arduino mini/pro that i plan to configure and try out as well when time allows.
+New device configurations simply need to be added to the config files.
+
 Please post an issue if you have questions, requests or suggestions.
 
 **Required library!**
