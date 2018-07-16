@@ -87,17 +87,15 @@ void BatCapIndLED(int led, float voltage, int numberCells);
 
 void setup()
 {	
-	#ifdef STATUS_LED_USED
-		Led.begin();
-		Led.setBrightness(BRIGHTNESS);
-	#endif
-
 	#ifdef DEBUG
 		Serial.begin(9600);
 		Serial.println("Tx Started");
 	#endif
 
 	#ifdef STATUS_LED_USED
+		Led.begin();
+		Led.setBrightness(BRIGHTNESS);
+
 		//Some light play at startup
 		Led.setPixelColor(0, COLOR_BLUE);
 		Led.show();
@@ -111,9 +109,11 @@ void setup()
 		Led.setPixelColor(3, COLOR_ORANGE);
 		Led.show();
 		delay(300);
+
 		for (size_t i = 0; i < NUM2812; i++) {
 			Led.setPixelColor(i, COLOR_OFF);
 		}
+
 		Led.show();
 	#endif
 
