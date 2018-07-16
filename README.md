@@ -1,4 +1,4 @@
-## Arduino based remote with telemetry for VESC with nRF24
+# Arduino based remote with telemetry for VESC with nRF24
 
 As the origial project was discontinued, and having worked with the code a bit i decided i would do some cleanup.
 The intention is to, hopefully, save my self and others some headaches in the future when modding the code.
@@ -18,7 +18,7 @@ Update the COMM_PACKET_ID enum in your VESCUartControl library manually to match
 
 Otherwise your reciever will not be sending the correct UART commands.
 
-# Original description
+## Original description
 
 A build tutorial (but without display) you can find in German in the Issue 5/17 of the make magazin: https://www.heise.de/make/artikel/eSkateboard-mit-VESC-Speedcontroller-3823391.html?artikelseite=4
 
