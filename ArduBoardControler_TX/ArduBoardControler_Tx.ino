@@ -92,6 +92,9 @@ void setup()
 		Serial.println("Tx Started");
 	#endif
 
+  pinMode(A6, OUTPUT);
+  digitalWrite(A6, HIGH);
+
 	#ifdef STATUS_LED_USED
 		Led.begin();
 		Led.setBrightness(BRIGHTNESS);
@@ -113,6 +116,9 @@ void setup()
 		for (size_t i = 0; i < NUM2812; i++) {
 			Led.setPixelColor(i, COLOR_OFF);
 		}
+
+    // Use pin 8 as power for the RF24
+    digitalWrite(8, HIGH);
 
 		Led.show();
 	#endif
@@ -184,7 +190,7 @@ void loop()
 		leftright = analogRead(JOY_X);
 	#endif
 
-	remPack.valYJoy = map(analogRead(JOY_Y), 0, 1023, 0, 255);
+	remPack.valYJoy = map(analogRead(JOY_Y), 430, 1023, 0, 255);
 	remPack.valLowerButton = !digitalRead(LOWER_BUTTON);
 	remPack.valUpperButton = !digitalRead(UPPER_BUTTON);
 
@@ -197,11 +203,14 @@ void loop()
 		recOK = true;
 	}
 
+#ifdef DEBUG
+  Serial.print("Raw= "); Serial.print(analogRead(JOY_Y)); Serial.print(" Y= "); Serial.println(remPack.valYJoy);
+#endif
+
 	if (sendOK) {
 		sendOK = false;
 
 		#ifdef DEBUG
-			Serial.print("X= "); Serial.print(remPack.valXJoy); Serial.print(" Y= "); Serial.println(remPack.valYJoy);
 			Serial.println("Send successfully!");
 			Serial.print("Failed= "); Serial.println(failedCounter);
 		#endif

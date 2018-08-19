@@ -25,7 +25,7 @@
 	#endif
 
 	// For Arduino Nano
-	#ifdef ARDUINO_AVR_NANO
+	#if defined(ARDUINO_AVR_NANO) || defined(ARDUINO_AVR_PRO)
 		//Pin definition
 
 		//nRF24: 

@@ -29,7 +29,7 @@
 	#endif
 
 	// For Arduino ATmega328p (Nano)
-	#ifdef ARDUINO_AVR_NANO
+	#if defined(ARDUINO_AVR_NANO) || defined(ARDUINO_AVR_PRO)
 		// SPI definition (for better readability)
 		#define MOSI				11
 		#define MISO				12
